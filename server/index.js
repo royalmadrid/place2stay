@@ -10,6 +10,7 @@ const port = process.env.PORT || 5000
 
 const app = express()
 
+
 app.use((req, res, next ) => {
     res.setHeader('Access-Control-Allow-Origin', process.env.CLIENT_URL)
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE')
@@ -18,6 +19,8 @@ app.use((req, res, next ) => {
 })
 
 app.use(express.json({limit:'10mb'}))
+app.use(express.urlencoded({ extended: true }));
+
 app.use('/user', userRouter);
 app.use('/room', roomRouter);
 app.use('/', (req, res)=>res.json({message:'Welcome to our API'}))

@@ -13,15 +13,16 @@ const auth = async(req, res, next) => {
                 audience:process.env.GOOGLE_CLIENT_ID
             })
             const payload = ticket.getPayload()
-            req.user={
+            req.user = {
                 id: payload.sub, 
                 name: payload.name, 
-                photoURL: payload.picture};
+                photoURL: payload.picture,
+                role: 'basic'};
         } else {
             // to do varify 
             const decodedToken = jwt.verify(token, process.env.JWT_SECRET)
-            const {id, name, photoURL} = decodedToken;
-            req.user = { id, name, photoURL};
+            const {id, name, photoURL, role} = decodedToken;
+            req.user = { id, name, photoURL, role};
         }
         next()
     } catch (error) {

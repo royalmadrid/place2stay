@@ -1,5 +1,5 @@
 import React from 'react'
-import { useValue } from '../../../context/ContextProvider'
+import { useValue } from '../../context/ContextProvider'
 import AccessMessage from './AccessMessage';
 
 const Protected = ({children}) => {
