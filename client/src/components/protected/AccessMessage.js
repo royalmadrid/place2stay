@@ -1,14 +1,12 @@
 import { Lock } from '@mui/icons-material'
 import { Alert, AlertTitle, Button, Container } from '@mui/material'
 import React from 'react'
-import { useValue } from '../../../context/ContextProvider'
+import { useValue } from '../../context/ContextProvider.js'
 
 const AccessMessage = () => {
     const { dispatch } = useValue();
   return (
-    <Container
-    sx={{py:5}}
-    >
+    <Container sx={{py: 10}}>
         <Alert
         severity='error'
         variant='outlined'
